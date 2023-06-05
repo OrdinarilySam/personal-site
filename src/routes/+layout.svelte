@@ -8,22 +8,21 @@
 	<main>
 		<slot />
 	</main>
-
 </div>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;500;600;700&display=swap');
 	.app {
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
-    width: 100%;
-    height: 100%;
-    align-items: stretch;
+		width: 100%;
+		height: 100%;
+		align-items: stretch;
 	}
-  main {
-    background: pink;
-    height: 100%;
-    flex-grow: 1;
-    display: flex;
-  }
+	main {
+		height: 100%;
+		flex-grow: 1;
+		display: flex;
+	}
 </style>
