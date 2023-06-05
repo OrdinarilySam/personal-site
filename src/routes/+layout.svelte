@@ -9,8 +9,6 @@
 		<slot />
 	</main>
 
-	<footer>
-	</footer>
 </div>
 
 <style>
@@ -18,31 +16,14 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
 	}
-
-	/* main { */
-	/* 	flex: 1; */
-	/* 	display: flex; */
-	/* 	flex-direction: column; */
-	/* 	padding: 1rem; */
-	/* 	width: 100%; */
-	/* 	max-width: 64rem; */
-	/* 	margin: 0 auto; */
-	/* 	box-sizing: border-box; */
-	/* } */
-	/**/
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
+  main {
+    background: pink;
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+  }
 </style>
