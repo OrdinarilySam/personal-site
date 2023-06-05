@@ -20,18 +20,23 @@
 		box-sizing: border-box;
 	}
 
+  :global(.nav-home) {
+    cursor: default;
+    font-weight: 600;
+  }
+
 	.container {
 		flex-grow: 1;
-		display: grid;
-    grid-template: 1fr / 1fr 1fr;
-    grid-gap: 1rem;
+		display: flex;
+    gap: 1rem;
     margin: 1rem;
 		a {
       text-align: center;
       width: 100%;
-      transition: width 0.5s;
+      flex: 1;
+      transition: flex 0.5s;
       &:hover {
-        width: 60vw;
+        flex: 2;
       }
       grid-row: auto;
       align-content: center;

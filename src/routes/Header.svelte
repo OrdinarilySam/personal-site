@@ -5,10 +5,10 @@
 	<h1>Sam Martin</h1>
 	<nav>
 		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/projects">Projects</a></li>
-			<li><a href="/photography">Photography</a></li>
-			<li><a href="/about">About</a></li>
+			<li><a class="nav-home" href="/">Home</a></li>
+			<li><a class="nav-projects" href="/projects">Projects</a></li>
+			<li><a class="nav-photography" href="/photography">Photography</a></li>
+			<li><a class="nav-about" href="/about">About</a></li>
 		</ul>
 	</nav>
 </header>
