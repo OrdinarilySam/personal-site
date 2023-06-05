@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { fade } from "svelte/transition"
+  function handleClick(e: Event) {
+
+  }
 </script>
 
 <svelte:head>
@@ -7,10 +11,10 @@
 </svelte:head>
 
 <div class="container">
-		<a href="/projects" class="projects">
+		<a out:fade on:click={handleClick} href="/projects" class="projects">
 			<h1>Programming Projects</h1>
 		</a>
-		<a href="/photography" class="photography">
+		<a out:fade on:click={handleClick} href="/photography" class="photography">
 			<h1>Photography</h1>
 		</a>
 </div>
@@ -19,12 +23,6 @@
 	:global(*) {
 		box-sizing: border-box;
 	}
-
-  :global(.nav-home) {
-    cursor: default;
-    font-weight: 600;
-  }
-
 	.container {
 		flex-grow: 1;
 		display: flex;
@@ -36,7 +34,7 @@
       flex: 1;
       transition: flex 0.5s;
       &:hover {
-        flex: 2;
+        flex: 1.5;
       }
       grid-row: auto;
       align-content: center;
@@ -46,13 +44,27 @@
       justify-content: center;
       align-content: center;
       h1 {
+        text-decoration: none;
         margin: auto;
+        filter: none;
+        color: white;
+        text-shadow: black 0 0 1px;
       }
-      &.projects {
-        background: pink;
+      &.projects::before {
+        background-image: url("$lib/images/Projects.jpeg");
+        background-position: center;
+        filter: blur(2px) brightness(50%);
+        height: 100%;
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        content: "";
+        z-index: -1;
       }
       &.photography {
-        background: red;
+        background-image: url("$lib/images/Photography.jpeg");
+        background-position: center;
       }
 		}
 	}
