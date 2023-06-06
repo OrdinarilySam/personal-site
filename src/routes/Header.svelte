@@ -2,7 +2,7 @@
 </script>
 
 <header>
-	<h1>Sam Martin</h1>
+	<h1>OrdinarilySam</h1>
 	<nav>
 		<ul>
 			<li><a class="nav-home" href="/">Home</a></li>

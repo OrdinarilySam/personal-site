@@ -12,6 +12,9 @@
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;500;600;700&display=swap');
+  * {
+    font-family: 'Raleway', sans-serif;
+  }
 	.app {
 		display: flex;
 		flex-direction: column;
