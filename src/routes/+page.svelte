@@ -53,6 +53,9 @@
         justify-content: center;
         align-items: center;
         h1 {
+          transition: filter 0.5s;
+          padding: 1rem;
+          text-align: center;
           font-family: 'Raleway', sans-serif;
           font-size: 2.5rem;
           color: white;
@@ -69,12 +72,20 @@
         transition: filter 0.5s;
         filter: blur(2px) brightness(25%);
         &.photography-img{
-          background-image: url("$lib/images/Photography.jpeg")
+          background-image: url("$lib/images/Photography.jpeg");
+          background-size: cover;
         }
         &.projects-img{
-          background-image: url("$lib/images/Projects.jpeg")
+          background-image: url("$lib/images/Projects.jpeg");
         }
       }
     }
+    &:hover > div > a > h1 {
+      filter: brightness(75%);
+  }
+    div:hover > a > h1 {
+      filter: brightness(100%);
+    }
+
   }
 </style>
