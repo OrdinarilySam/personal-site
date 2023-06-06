@@ -11,7 +11,7 @@
 </div>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;500;600;700&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;500;600;700&display=swap');
 	.app {
 		display: flex;
 		flex-direction: column;

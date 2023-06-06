@@ -19,7 +19,7 @@
 		display: flex;
 		justify-content: space-between;
 		padding: 0.75rem;
-    box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
+		box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 	}
 	ul {
 		display: flex;
@@ -38,12 +38,12 @@
 			text-decoration: none;
 			color: black;
 		}
-    font-family: 'Raleway', sans-serif;
+		font-family: 'Raleway', sans-serif;
 		padding: 0 1.5em;
 		list-style-type: none;
 	}
 	h1 {
-    font-family: 'Raleway', sans-serif;
+		font-family: 'Raleway', sans-serif;
 		line-height: 1em;
 		margin: 0;
 		padding: 0.5rem 1rem;
