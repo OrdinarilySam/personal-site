@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <svelte:head>
   <title>Home</title>
   <meta name="home" content="Homepage for ordinarilysam website" />
@@ -24,10 +21,6 @@
     </div>
   </div>
 </div>
-
-<!--   
-
--->
 
 <style lang="scss">
   :global(*) {
