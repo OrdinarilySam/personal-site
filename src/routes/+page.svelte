@@ -23,10 +23,7 @@
 </div>
 
 <style lang="scss">
-  :global(*) {
-    box-sizing: border-box;
-  }
-  .container {
+    .container {
     flex-grow: 1;
     display: flex;
     gap: 1rem;
