@@ -1,4 +1,5 @@
-export default `I'm an aspiring web developer with a passion for creating engaging and visually appealing online experiences. From designing captivating user interfaces to crafting seamless user experiences, I strive to bring innovative ideas to life through the power of code.
+<div>
+I'm an aspiring web developer with a passion for creating engaging and visually appealing online experiences. From designing captivating user interfaces to crafting seamless user experiences, I strive to bring innovative ideas to life through the power of code.
 
 When I'm not immersed in the world of web development, you can often find me pursuing my other interests. Photography is one of my favorite creative outlets, allowing me to capture beautiful moments and tell stories through the lens. Whether it's the breathtaking landscapes during my hikes or candid shots of everyday life, photography fuels my curiosity and sparks my imagination.
 
@@ -12,4 +13,5 @@ Music is the soundtrack of my life, and it accompanies me on every adventure. Fr
 
 Currently, I am pursuing a B.Sc. in computer science at the University of Minnesota. My studies have provided me with a strong foundation in programming languages, algorithms, and software development principles. I'm eager to continue expanding my knowledge and honing my skills to create meaningful and impactful digital experiences.
 
-Thank you for visiting my website, and I hope you enjoy exploring my projects and getting to know more about my journey as a web developer. Feel free to reach out, collaborate, or simply share your own passions and ideas. Let's connect and create something remarkable together!`;
+Thank you for visiting my website, and I hope you enjoy exploring my projects and getting to know more about my journey as a web developer. Feel free to reach out, collaborate, or simply share your own passions and ideas. Let's connect and create something remarkable together!
+</div>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import MeImage from "$lib/images/Me.jpeg"
-  import About from "$lib/text/about.js"
+  import About from "./About.svelte"
 </script>
 
 <svelte:head>
