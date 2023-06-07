@@ -21,6 +21,7 @@
       <p aria-hidden="true">Hey there</p>
     </div>
     <div>
+      <!-- TODO: add icons and links and format socials -->
       <h3>Socials</h3>
       <ul>
         <li>GitHub</li>
