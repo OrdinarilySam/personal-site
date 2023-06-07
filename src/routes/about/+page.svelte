@@ -1,5 +1,6 @@
 <script lang="ts">
   import MeImage from "$lib/images/Me.jpeg"
+  import About from "$lib/text/about.js"
 </script>
 
 <svelte:head>
@@ -9,8 +10,8 @@
 
 <div class="container">
   <div class="main">
-    <p>Hi, I'm <span>Sam Martin</span>.</p>
-    
+    <h3>Hi, I'm <span>Sam Martin</span>.</h3>
+    <p>{About}</p>
       </div>  
   <div class="side">
     <img src={MeImage} alt="headshot of sam"/>
@@ -28,7 +29,8 @@
     .main {
       flex: 2;
       text-align: center;
-      p {
+      h3 {
+        font-weight: 400;
         font-size: 3rem;
         span {
           font-weight: 600;
