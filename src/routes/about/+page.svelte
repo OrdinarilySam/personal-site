@@ -13,6 +13,7 @@
     <h3>Hi, I'm <span>Sam Martin</span>.</h3>
     <About />
   </div>  
+    <!-- Maybe make header sit on top of both text and images -->
   <div class="side">
     <div class="img-container">
       <div class="hover-area"></div>
@@ -53,6 +54,7 @@
     }
     .side {
       flex: 1;
+      margin-top: 6rem;
       .img-container{
         aspect-ratio: 1 / 1;
         position: relative;
@@ -77,8 +79,8 @@
           position: absolute;
           bottom: 0;
           left: 0;
-          transform: rotate(45deg) translate(-1vw, -1vh);
-          /* transform: rotate(45deg) translate(-3em, -4em); */
+          transform: translate(0, -1.5vh) rotate(45deg);
+          /* transform: rotate(45deg) translate(-1vw, -1vh); */
           z-index: -1;
           font-weight: 600;
         }
