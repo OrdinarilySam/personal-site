@@ -24,11 +24,13 @@
 
 <style lang="scss">
     .container {
-    flex-grow: 1;
     display: flex;
     gap: 1rem;
     margin: 1rem;
+        flex-grow: 1;
     div {
+      flex-grow: 1;
+        height: 100%;
       width: 100%;
       flex: 1;
       transition: flex 0.5s;
@@ -70,7 +72,6 @@
         filter: blur(2px) brightness(25%);
         &.photography-img{
           background-image: url("$lib/images/Photography.jpeg");
-          background-size: cover;
         }
         &.projects-img{
           background-image: url("$lib/images/Projects.jpeg");
