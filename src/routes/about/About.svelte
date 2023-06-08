@@ -40,3 +40,10 @@
     Let's connect and create something remarkable together!
   </p>
 </div>
+<style lang="scss">
+  div {
+    p {
+      margin-top: 0;
+    }
+  }
+</style>
