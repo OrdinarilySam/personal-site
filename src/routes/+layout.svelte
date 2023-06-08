@@ -24,6 +24,7 @@
 		width: 100%;
 		height: 100%;
 		align-items: stretch;
+    overflow: hidden;
 	}
 	main {
 		height: 100%;
