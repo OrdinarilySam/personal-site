@@ -16,8 +16,8 @@
       <About />
     </div> 
     <div class="side">
+    <Socials />
       <ImageContainer />
-      <Socials />
     </div>
   </div>
 </div>
