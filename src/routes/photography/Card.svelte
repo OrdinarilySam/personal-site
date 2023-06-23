@@ -50,9 +50,11 @@
 	}
 
 	function handleLeave() {
-		card.style.transform = `rotateX(0deg) rotateY(0deg)`;
-		shadow.style.background = `none`;
-		shadow.style.opacity = `0`;
+		setTimeout(() => {
+			card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+			shadow.style.background = `none`;
+			shadow.style.opacity = `0`;
+		}, 20);
 	}
 
 	export let data: { url: string; alt: string };
