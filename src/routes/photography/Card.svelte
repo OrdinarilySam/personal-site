@@ -2,41 +2,68 @@
 	let shadow: HTMLDivElement;
 	let card: HTMLDivElement;
 
+	function throttle<T extends any[]>(
+		func: (...args: T) => void,
+		delay: number
+	): (...args: T) => void {
+		let timeoutId: number;
+		let lastExecTime = 0;
+
+		return function (...args: T) {
+			const currentTime = new Date().getTime();
+			const timeSinceLastExec = currentTime - lastExecTime;
+
+			clearTimeout(timeoutId);
+
+			if (timeSinceLastExec > delay) {
+				func(...args);
+				lastExecTime = currentTime;
+			} else {
+				timeoutId = setTimeout(() => {
+					func(...args);
+					lastExecTime = new Date().getTime();
+				}, delay);
+			}
+		};
+	}
+
+	const throttledHandleMove = throttle(handleMove, 16);
+
 	// TODO: increase performance by using a canvas element?
 	function handleMove(event: MouseEvent) {
-		if (!event.target) return;
 		let element = event.target as HTMLDivElement;
+		let halfWidth = element.clientWidth / 2;
+		let halfHeight = element.clientHeight / 2;
 
-		let rotateX = (-event.offsetY + element.clientWidth / 2) / 10;
-		let rotateY = (event.offsetX - element.clientHeight / 2) / 10;
-		// let brightness = 1.5 - event.offsetY / element.clientHeight;
+		let rotateX = (halfHeight - event.offsetY) / 10;
+		let rotateY = (event.offsetX - halfWidth) / 10;
 
 		card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-		// card.style.filter = `brightness(${brightness})`;
 
-		let fixedX = event.offsetX - element.clientWidth / 2;
-		let fixedY = event.offsetY - element.clientHeight / 2;
+		let fixedX = event.offsetX - halfWidth;
+		let fixedY = event.offsetY - halfHeight;
 		let angle = Math.atan2(fixedY, fixedX) - Math.PI / 2;
-		let intensity = Math.sqrt(
-			(fixedX / element.clientWidth / 2) ** 2 + (fixedY / element.clientHeight / 2) ** 2
-		);
+		let intensity = Math.sqrt((fixedX / halfWidth / 2) ** 2 + (fixedY / halfHeight / 2) ** 2) * 0.5;
 
-		shadow.style.background = `linear-gradient(${angle}rad, black, transparent), linear-gradient(${
-			angle + Math.PI
-		}rad, white, transparent)`;
+		shadow.style.background = `linear-gradient(${angle}rad, black, transparent, white)`;
 		shadow.style.opacity = `${intensity}`;
 	}
 
 	function handleLeave() {
 		card.style.transform = `rotateX(0deg) rotateY(0deg)`;
-		card.style.filter = `brightness(1)`;
 		shadow.style.background = `none`;
+		shadow.style.opacity = `0`;
 	}
 
 	export let data: { url: string; alt: string };
 </script>
 
-<div class="content" bind:this={card} on:mousemove={handleMove} on:mouseleave={handleLeave}>
+<div
+	class="content"
+	bind:this={card}
+	on:mousemove={throttledHandleMove}
+	on:mouseleave={handleLeave}
+>
 	<img src={data.url} alt={data.alt} />
 	<div bind:this={shadow} />
 </div>
@@ -60,7 +87,8 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: linear-gradient(rgba(255, 0, 0, 0.2), transparent);
+			z-index: 3;
+			transition: all 250ms ease-out;
 		}
 	}
 </style>
