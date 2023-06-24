@@ -2,35 +2,11 @@
 	let shadow: HTMLDivElement;
 	let card: HTMLDivElement;
 
-	function throttle<T extends any[]>(
-		func: (...args: T) => void,
-		delay: number
-	): (...args: T) => void {
-		let timeoutId: number;
-		let lastExecTime = 0;
-
-		return function (...args: T) {
-			const currentTime = new Date().getTime();
-			const timeSinceLastExec = currentTime - lastExecTime;
-
-			clearTimeout(timeoutId);
-
-			if (timeSinceLastExec > delay) {
-				func(...args);
-				lastExecTime = currentTime;
-			} else {
-				timeoutId = setTimeout(() => {
-					func(...args);
-					lastExecTime = new Date().getTime();
-				}, delay);
-			}
-		};
-	}
-
+	import throttle from '$lib/tools/throttle';
 	const throttledHandleMove = throttle(handleMove, 16);
 
-	// TODO: increase performance by using a canvas element?
 	function handleMove(event: MouseEvent) {
+		console.log(event.target);
 		let element = event.target as HTMLDivElement;
 		let halfWidth = element.clientWidth / 2;
 		let halfHeight = element.clientHeight / 2;
@@ -45,15 +21,14 @@
 		let angle = Math.atan2(fixedY, fixedX) - Math.PI / 2;
 		let intensity = Math.sqrt((fixedX / halfWidth / 2) ** 2 + (fixedY / halfHeight / 2) ** 2) * 0.5;
 
-		shadow.style.background = `linear-gradient(${angle}rad, black, transparent, white)`;
-		shadow.style.opacity = `${intensity}`;
+		shadow.style.background = `linear-gradient(${angle}rad, rgba(0, 0, 0, ${intensity}), transparent, rgba(255, 255, 255, ${intensity}))`;
 	}
 
 	function handleLeave() {
 		setTimeout(() => {
 			card.style.transform = `rotateX(0deg) rotateY(0deg)`;
 			shadow.style.background = `none`;
-			shadow.style.opacity = `0`;
+			card.style.boxShadow = `none`;
 		}, 20);
 	}
 
@@ -89,8 +64,16 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 3;
+			z-index: 9;
 			transition: all 250ms ease-out;
+			&::before {
+				content: '';
+				position: absolute;
+				inset: -5px;
+				transform: translate(10px, 8px);
+				z-index: -1;
+				filter: blur(10px);
+			}
 		}
 	}
 </style>
