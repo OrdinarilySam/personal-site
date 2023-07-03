@@ -1,35 +1,41 @@
 <script lang="ts">
-	let shadow: HTMLDivElement;
-	let card: HTMLDivElement;
-
 	import throttle from '$lib/tools/throttle';
-	const throttledHandleMove = throttle(handleMove, 16);
+
+	let reflection: HTMLDivElement;
+	let card: HTMLDivElement;
+	let shadow: HTMLDivElement;
+
+	const throttledHandleMove = throttle(handleMove, 50);
 
 	function handleMove(event: MouseEvent) {
-		console.log(event.target);
-		let element = event.target as HTMLDivElement;
-		let halfWidth = element.clientWidth / 2;
-		let halfHeight = element.clientHeight / 2;
+		const element = event.target as HTMLDivElement;
 
-		let rotateX = (halfHeight - event.offsetY) / 10;
-		let rotateY = (event.offsetX - halfWidth) / 10;
+		const halfWidth = element.clientWidth / 2;
+		const halfHeight = element.clientHeight / 2;
+
+		const rotateX = (halfHeight - event.offsetY) / 10;
+		const rotateY = (event.offsetX - halfWidth) / 10;
 
 		card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-		let fixedX = event.offsetX - halfWidth;
-		let fixedY = event.offsetY - halfHeight;
-		let angle = Math.atan2(fixedY, fixedX) - Math.PI / 2;
-		let intensity = Math.sqrt((fixedX / halfWidth / 2) ** 2 + (fixedY / halfHeight / 2) ** 2) * 0.5;
+		const fixedX = event.offsetX - halfWidth;
+		const fixedY = event.offsetY - halfHeight;
 
-		shadow.style.background = `linear-gradient(${angle}rad, rgba(0, 0, 0, ${intensity}), transparent, rgba(255, 255, 255, ${intensity}))`;
+		const angle = Math.atan2(fixedY, fixedX) - Math.PI / 2;
+		const intensity =
+			Math.sqrt((fixedX / halfWidth / 2) ** 2 + (fixedY / halfHeight / 2) ** 2) * 0.5;
+
+		reflection.style.background = `linear-gradient(${angle}rad, rgba(0, 0, 0, ${intensity}), transparent, rgba(255, 255, 255, ${intensity}))`;
+		shadow.style.background = `linear-gradient(rgb(255, 0, 0), rgb(0, 255, 0))`;
 	}
 
 	function handleLeave() {
 		setTimeout(() => {
 			card.style.transform = `rotateX(0deg) rotateY(0deg)`;
 			shadow.style.background = `none`;
+			reflection.style.background = `none`;
 			card.style.boxShadow = `none`;
-		}, 20);
+		}, 100);
 	}
 
 	export let data: { url: string; alt: string };
@@ -42,7 +48,8 @@
 	on:mouseleave={handleLeave}
 >
 	<img src={data.url} alt={data.alt} />
-	<div bind:this={shadow} />
+	<div class="reflection" bind:this={reflection} />
+	<div class="shadow" bind:this={shadow} />
 </div>
 
 <style lang="scss">
@@ -58,7 +65,10 @@
 		img {
 			height: 100%;
 		}
-		div {
+		&:hover {
+			scale: 1.05;
+		}
+		.reflection {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -66,14 +76,13 @@
 			height: 100%;
 			z-index: 9;
 			transition: all 250ms ease-out;
-			&::before {
-				content: '';
-				position: absolute;
-				inset: -5px;
-				transform: translate(10px, 8px);
-				z-index: -1;
-				filter: blur(10px);
-			}
+		}
+		.shadow {
+			position: absolute;
+			inset: -5px;
+			transform: translate(10px, 8px);
+			z-index: -1;
+			filter: blur(10px);
 		}
 	}
 </style>
