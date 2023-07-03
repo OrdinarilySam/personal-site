@@ -15,9 +15,12 @@
 
 <style lang="scss">
 	div {
-		flex-grow: 1;
-		display: flex;
 		justify-content: center;
+		width: 100%;
 		align-items: center;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		padding: 1rem;
+		gap: 1rem;
 	}
 </style>
