@@ -16,6 +16,7 @@
 		perspective: 600px;
 		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 		height: 400px;
+		max-width: min-content;
 		img {
 			height: 100%;
 		}
