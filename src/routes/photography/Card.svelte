@@ -1,55 +1,11 @@
 <script lang="ts">
-	import throttle from '$lib/tools/throttle';
-
-	let reflection: HTMLDivElement;
-	let card: HTMLDivElement;
-	let shadow: HTMLDivElement;
-
-	const throttledHandleMove = throttle(handleMove, 50);
-
-	function handleMove(event: MouseEvent) {
-		const element = event.target as HTMLDivElement;
-
-		const halfWidth = element.clientWidth / 2;
-		const halfHeight = element.clientHeight / 2;
-
-		const rotateX = (halfHeight - event.offsetY) / 10;
-		const rotateY = (event.offsetX - halfWidth) / 10;
-
-		card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-		const fixedX = event.offsetX - halfWidth;
-		const fixedY = event.offsetY - halfHeight;
-
-		const angle = Math.atan2(fixedY, fixedX) - Math.PI / 2;
-		const intensity =
-			Math.sqrt((fixedX / halfWidth / 2) ** 2 + (fixedY / halfHeight / 2) ** 2) * 0.5;
-
-		reflection.style.background = `linear-gradient(${angle}rad, rgba(0, 0, 0, ${intensity}), transparent, rgba(255, 255, 255, ${intensity}))`;
-		shadow.style.background = `linear-gradient(rgb(255, 0, 0), rgb(0, 255, 0))`;
-	}
-
-	function handleLeave() {
-		setTimeout(() => {
-			card.style.transform = `rotateX(0deg) rotateY(0deg)`;
-			shadow.style.background = `none`;
-			reflection.style.background = `none`;
-			card.style.boxShadow = `none`;
-		}, 100);
-	}
-
 	export let data: { url: string; alt: string };
 </script>
 
-<div
-	class="content"
-	bind:this={card}
-	on:mousemove={throttledHandleMove}
-	on:mouseleave={handleLeave}
->
+<div class="content">
 	<img src={data.url} alt={data.alt} />
-	<div class="reflection" bind:this={reflection} />
-	<div class="shadow" bind:this={shadow} />
+	<div class="reflection" />
+	<div class="shadow" />
 </div>
 
 <style lang="scss">
