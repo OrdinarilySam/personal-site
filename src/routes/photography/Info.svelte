@@ -1,13 +1,13 @@
 <script lang="ts">
 	import type { Photo } from '$lib/types';
-	export let data: Photo;
+	export let photo: Photo;
 </script>
 
 <div class="info">
-	<h2>{data.title}</h2>
-	<p>{data.location}</p>
-	<p>{data.date}</p>
-	<a href={data.imageUrl} target="_blank">View Full Size</a>
+	<h2>{photo.title}</h2>
+	<p>{photo.location}</p>
+	<p>{photo.date}</p>
+	<a href={photo.imageUrl} target="_blank">View Full Size</a>
 </div>
 
 <style lang="scss">

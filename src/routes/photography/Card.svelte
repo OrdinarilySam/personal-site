@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Photo } from '$lib/types';
+	import Info from './Info.svelte';
 	// maybe create a card holder component that handles the modal state and modal photo
 
 	let modalOpen = false;
@@ -42,9 +43,7 @@
 	<div class="modal" on:click={handleClick} on:keydown={handleKeyDown}>
 		<div class="full" on:click|stopPropagation on:keydown|stopPropagation>
 			<img src={photo.imageUrl} bind:this={image} alt={photo.title} />
-			<div class="info">
-				<h2>{photo.title}</h2>
-			</div>
+			<Info {photo} />
 		</div>
 	</div>
 {/if}
