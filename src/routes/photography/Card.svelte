@@ -21,19 +21,29 @@
 	}
 
 	function handleKeyDown(event: KeyboardEvent) {
-		if (event.key === 'Enter' || event.key === ' ') {
+		if ((event.key === 'Enter' || event.key === ' ') && !modalOpen) {
 			toggleStates();
+		}
+		if (event.key === 'Escape' && modalOpen) {
+			toggleStates();
+		}
+	}
+
+	$: {
+		if (modalOpen) {
+			window.addEventListener('keydown', handleKeyDown);
+		} else {
+			window.removeEventListener('keydown', handleKeyDown);
 		}
 	}
 </script>
 
 {#if modalOpen}
 	<div class="modal" on:click={handleClick} on:keydown={handleKeyDown}>
-		<div class="full">
+		<div class="full" on:click|stopPropagation on:keydown|stopPropagation>
 			<img src={photo.imageUrl} bind:this={image} alt={photo.title} />
 			<div class="info">
 				<h2>{photo.title}</h2>
-				<p>{photo.description}</p>
 			</div>
 		</div>
 	</div>
