@@ -9,3 +9,10 @@
 	<p>{data.date}</p>
 	<a href={data.imageUrl} target="_blank">View Full Size</a>
 </div>
+
+<style lang="scss">
+	.info {
+		text-align: center;
+		width: 100%;
+	}
+</style>

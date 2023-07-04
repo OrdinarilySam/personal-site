@@ -94,9 +94,5 @@
 			object-fit: contain;
 			max-width: 75%;
 		}
-		.info {
-			text-align: center;
-			width: 100%;
-		}
 	}
 </style>
