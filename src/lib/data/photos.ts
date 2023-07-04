@@ -13,21 +13,21 @@ export const photos = [
 	},
 	{
 		imageUrl: 'https://i.imgur.com/d5Oc8a5.jpg',
-		title: '',
-		location: '',
-		date: ''
+		title: 'Lizard',
+		location: 'San Pedro, Belize',
+		date: '2023-05-14'
 	},
 	{
 		imageUrl: 'https://i.imgur.com/XwyAQr7.jpg',
-		title: '',
-		location: '',
-		date: ''
+		title: 'Iguana',
+		location: 'San Pedro, Belize',
+		date: '2023-05-15'
 	},
 	{
 		imageUrl: 'https://i.imgur.com/EQyHLeP.jpg',
-		title: '',
-		location: '',
-		date: ''
+		title: 'Northern Lights',
+		location: 'Minnesota',
+		date: '2023-04-23'
 	},
 	{
 		imageUrl: 'https://i.imgur.com/8fbkI04.jpg',
