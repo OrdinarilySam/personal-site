@@ -9,29 +9,39 @@
 	function handleClick(event: MouseEvent) {
 		modalOpen = !modalOpen;
 	}
+
+	function handleKeyDown(event: KeyboardEvent) {
+		if (event.key === 'Enter' || event.key === ' ') {
+			modalOpen = !modalOpen;
+		}
+	}
 </script>
 
 {#if modalOpen}
-	<div class="modal" on:click={handleClick}>
+	<div class="modal" on:click={handleClick} on:keydown={handleKeyDown}>
 		<div class="full">
 			<img src={photo.imageUrl} bind:this={image} alt={photo.title} />
-			<h2>{photo.title}</h2>
-			<p>{photo.description}</p>
+			<div class="info">
+				<h2>{photo.title}</h2>
+				<p>{photo.description}</p>
+			</div>
 		</div>
 	</div>
-{:else}
-	<div class="card" on:click={handleClick}>
-		<img src={photo.imageUrl} bind:this={image} alt={photo.title} />
-	</div>
 {/if}
+<div class="card" on:click={handleClick} on:keydown={handleKeyDown}>
+	<img src={photo.imageUrl} bind:this={image} alt={photo.title} />
+</div>
 
 <style lang="scss">
 	.card {
 		cursor: pointer;
-		padding: 1rem;
-		border-radius: 0.5rem;
 		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
 		transition: transform 0.2s ease-in-out;
+		img {
+			object-fit: cover;
+			max-height: 100%;
+			max-width: 100%;
+		}
 	}
 
 	.card:hover {
@@ -52,19 +62,21 @@
 		background: rgba(0, 0, 0, 0.5);
 	}
 
-	img {
-		width: 100%;
-		height: auto;
-		object-fit: cover;
-	}
-
 	.full {
 		z-index: 2;
 		max-height: 75vh;
-		max-width: 75vw;
+		max-width: 90vw;
 		background: white;
 		display: flex;
-		flex-direction: column;
+		justify-content: space-between;
 		padding: 1rem;
+		img {
+			object-fit: contain;
+			max-width: 75%;
+		}
+		.info {
+			text-align: center;
+			width: 100%;
+		}
 	}
 </style>
