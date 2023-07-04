@@ -4,10 +4,15 @@
 </script>
 
 <div class="info">
-	<h2>{photo.title}</h2>
-	<p>{photo.location}</p>
-	<p>{photo.date}</p>
-	<a href={photo.imageUrl} target="_blank">View Full Size</a>
+	{#if photo.title}
+		<h2>{photo.title}</h2>
+	{/if}
+	{#if photo.location}
+		<p>{photo.location}</p>
+	{/if}
+	{#if photo.date}
+		<p>{photo.date}</p>
+	{/if}
 </div>
 
 <style lang="scss">
