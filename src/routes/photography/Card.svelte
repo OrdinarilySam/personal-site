@@ -6,13 +6,22 @@
 	export let photo: Photo;
 	let image: HTMLImageElement;
 
-	function handleClick(event: MouseEvent) {
+	function toggleStates() {
 		modalOpen = !modalOpen;
+		if (modalOpen) {
+			document.body.classList.add('modal-open');
+		} else {
+			document.body.classList.remove('modal-open');
+		}
+	}
+
+	function handleClick(event: MouseEvent) {
+		toggleStates();
 	}
 
 	function handleKeyDown(event: KeyboardEvent) {
 		if (event.key === 'Enter' || event.key === ' ') {
-			modalOpen = !modalOpen;
+			toggleStates();
 		}
 	}
 </script>
@@ -64,7 +73,7 @@
 
 	.full {
 		z-index: 2;
-		max-height: 75vh;
+		max-height: 90vh;
 		max-width: 90vw;
 		background: white;
 		display: flex;
