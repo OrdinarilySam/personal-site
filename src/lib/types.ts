@@ -1,5 +1,6 @@
 export type Photo = {
 	imageUrl: string;
-	description: string;
 	title: string;
+	location: string;
+	date: string;
 };
