@@ -1,30 +1,42 @@
 export const photos = [
 	{
-		url: 'https://i.imgur.com/O8O0TH9.jpg',
-		alt: 'northern lights'
+		imageUrl: 'https://i.imgur.com/O8O0TH9.jpg',
+		description: 'Northern Lights',
+		title: 'Northern Lights'
 	},
 	{
-		url: 'https://i.imgur.com/O8O0TH9.jpg',
-		alt: 'northern lights'
+		imageUrl: 'https://i.imgur.com/O8O0TH9.jpg',
+		description: 'Northern Lights',
+		title: 'Northern Lights'
 	},
 	{
-		url: 'https://i.imgur.com/O8O0TH9.jpg',
-		alt: 'northern lights'
+		imageUrl: 'https://i.imgur.com/O8O0TH9.jpg',
+		description: 'Northern Lights',
+		title: 'Northern Lights'
 	},
 	{
-		url: 'https://i.imgur.com/O8O0TH9.jpg',
-		alt: 'northern lights'
+		imageUrl: 'https://i.imgur.com/O8O0TH9.jpg',
+		description: 'Northern Lights',
+		title: 'Northern Lights'
 	},
 	{
-		url: 'https://i.imgur.com/O8O0TH9.jpg',
-		alt: 'northern lights'
+		imageUrl: 'https://i.imgur.com/O8O0TH9.jpg',
+		description: 'Northern Lights',
+		title: 'Northern Lights'
 	},
 	{
-		url: 'https://i.imgur.com/O8O0TH9.jpg',
-		alt: 'northern lights'
+		imageUrl: 'https://i.imgur.com/O8O0TH9.jpg',
+		description: 'Northern Lights',
+		title: 'Northern Lights'
 	},
 	{
-		url: 'https://i.imgur.com/O8O0TH9.jpg',
-		alt: 'northern lights'
+		imageUrl: 'https://i.imgur.com/O8O0TH9.jpg',
+		description: 'Northern Lights',
+		title: 'Northern Lights'
+	},
+	{
+		imageUrl: 'https://i.imgur.com/O8O0TH9.jpg',
+		description: 'Northern Lights',
+		title: 'Northern Lights'
 	}
 ];

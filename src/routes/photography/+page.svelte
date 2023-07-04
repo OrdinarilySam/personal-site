@@ -8,8 +8,8 @@
 	<meta name="photography" content="ordinarilysam photography portfolio" />
 </svelte:head>
 <div>
-	{#each photos as data}
-		<Card {data} />
+	{#each photos as photo}
+		<Card {photo} />
 	{/each}
 </div>
 
