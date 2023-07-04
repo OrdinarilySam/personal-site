@@ -18,6 +18,10 @@
 <style lang="scss">
 	.info {
 		text-align: center;
-		width: 100%;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 0 3rem;
 	}
 </style>

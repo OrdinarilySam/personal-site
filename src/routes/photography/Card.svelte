@@ -85,13 +85,15 @@
 		z-index: 2;
 		max-height: 90vh;
 		max-width: 90vw;
+		height: 100%;
 		background: white;
 		display: flex;
 		justify-content: space-between;
 		padding: 1rem;
+		gap: 1rem;
 		img {
+			height: 100%;
 			object-fit: contain;
-			max-width: 75%;
 		}
 	}
 </style>
