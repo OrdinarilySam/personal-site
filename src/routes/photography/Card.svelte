@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Photo } from '$lib/types';
+	// maybe create a card holder component that handles the modal state and modal photo
 
 	let modalOpen = false;
 
