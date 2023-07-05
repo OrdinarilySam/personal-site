@@ -43,7 +43,9 @@
 	<div class="modal" on:click={handleClick} on:keydown={handleKeyDown}>
 		<div class="full" on:click|stopPropagation on:keydown|stopPropagation>
 			<img src={photo.imageUrl} bind:this={image} alt={photo.title} />
-			<Info {photo} />
+			{#if Object.values(photo).every((value) => !!value)}
+				<Info {photo} />
+			{/if}
 		</div>
 	</div>
 {/if}
