@@ -9,7 +9,6 @@
 	class="card"
 	on:click={(event) => handleClick(event, photo)}
 	on:keydown={(event) => handleKeyDown(event, photo)}
-	id={`${photo.id}`}
 >
 	<img src={photo.imageUrl} alt={photo.title} />
 </div>

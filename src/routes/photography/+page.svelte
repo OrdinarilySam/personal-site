@@ -7,17 +7,14 @@
 	let modalOpen = false;
 	let photo: Photo | null = null;
 
-	// loop through every photo and assign it an id in increasing order
-	photos.forEach((photo, index) => {
-		photo.id = index;
-	});
-
 	function toggleStates() {
 		modalOpen = !modalOpen;
 		if (modalOpen) {
 			document.body.classList.add('modal-open');
+			window.addEventListener('keydown', handleKeyDown);
 		} else {
 			document.body.classList.remove('modal-open');
+			window.removeEventListener('keydown', handleKeyDown);
 		}
 	}
 
@@ -37,14 +34,6 @@
 		}
 		if (event.key === 'Escape' && modalOpen) {
 			toggleStates();
-		}
-	}
-
-	$: {
-		if (modalOpen) {
-			window.addEventListener('keydown', handleKeyDown);
-		} else {
-			window.removeEventListener('keydown', handleKeyDown);
 		}
 	}
 </script>
@@ -71,34 +60,5 @@
 		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 		padding: 1rem;
 		gap: 1rem;
-	}
-	.modal {
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		z-index: 1;
-		position: fixed;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		backdrop-filter: blur(5px);
-		background: rgba(0, 0, 0, 0.5);
-	}
-
-	.full {
-		z-index: 2;
-		max-height: 90vh;
-		max-width: 90vw;
-		height: 100%;
-		background: white;
-		display: flex;
-		justify-content: space-between;
-		padding: 1rem;
-		gap: 1rem;
-		img {
-			height: 100%;
-			object-fit: contain;
-		}
 	}
 </style>
