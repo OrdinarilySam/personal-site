@@ -3,4 +3,5 @@ export type Photo = {
 	title: string;
 	location: string;
 	date: string;
+	id: number;
 };

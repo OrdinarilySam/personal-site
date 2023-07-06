@@ -1,56 +1,17 @@
 <script lang="ts">
 	import type { Photo } from '$lib/types';
-	import Info from './Info.svelte';
-	// maybe create a card holder component that handles the modal state and modal photo
-
-	let modalOpen = false;
-
 	export let photo: Photo;
-	let image: HTMLImageElement;
-
-	function toggleStates() {
-		modalOpen = !modalOpen;
-		if (modalOpen) {
-			document.body.classList.add('modal-open');
-		} else {
-			document.body.classList.remove('modal-open');
-		}
-	}
-
-	function handleClick() {
-		toggleStates();
-	}
-
-	function handleKeyDown(event: KeyboardEvent) {
-		if ((event.key === 'Enter' || event.key === ' ') && !modalOpen) {
-			toggleStates();
-		}
-		if (event.key === 'Escape' && modalOpen) {
-			toggleStates();
-		}
-	}
-
-	$: {
-		if (modalOpen) {
-			window.addEventListener('keydown', handleKeyDown);
-		} else {
-			window.removeEventListener('keydown', handleKeyDown);
-		}
-	}
+	export let handleClick: (event: MouseEvent, data: Photo) => void;
+	export let handleKeyDown: (event: KeyboardEvent, data: Photo) => void;
 </script>
 
-{#if modalOpen}
-	<div class="modal" on:click={handleClick} on:keydown={handleKeyDown}>
-		<div class="full" on:click|stopPropagation on:keydown|stopPropagation>
-			<img src={photo.imageUrl} bind:this={image} alt={photo.title} />
-			{#if Object.values(photo).every((value) => !!value)}
-				<Info {photo} />
-			{/if}
-		</div>
-	</div>
-{/if}
-<div class="card" on:click={handleClick} on:keydown={handleKeyDown}>
-	<img src={photo.imageUrl} bind:this={image} alt={photo.title} />
+<div
+	class="card"
+	on:click={(event) => handleClick(event, photo)}
+	on:keydown={(event) => handleKeyDown(event, photo)}
+	id={`${photo.id}`}
+>
+	<img src={photo.imageUrl} alt={photo.title} />
 </div>
 
 <style lang="scss">
@@ -67,35 +28,5 @@
 
 	.card:hover {
 		transform: scale(1.05);
-	}
-
-	.modal {
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		z-index: 1;
-		position: fixed;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		backdrop-filter: blur(5px);
-		background: rgba(0, 0, 0, 0.5);
-	}
-
-	.full {
-		z-index: 2;
-		max-height: 90vh;
-		max-width: 90vw;
-		height: 100%;
-		background: white;
-		display: flex;
-		justify-content: space-between;
-		padding: 1rem;
-		gap: 1rem;
-		img {
-			height: 100%;
-			object-fit: contain;
-		}
 	}
 </style>
