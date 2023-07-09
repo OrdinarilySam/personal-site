@@ -3,15 +3,13 @@ export const photos = [
 		imageUrl: 'https://i.imgur.com/O8O0TH9.jpg',
 		title: 'Northern Lights',
 		location: 'Minnesota',
-		date: '2023-04-23',
-		id: 0
+		date: '2023-04-23'
 	},
 	{
 		imageUrl: 'https://i.imgur.com/1VsBuqY.jpg',
 		title: 'Deer',
 		location: 'Apple Valley, MN',
-		date: '2023-05-03',
-		id: 0
+		date: '2023-05-03'
 	},
 	{
 		imageUrl: 'https://i.imgur.com/d5Oc8a5.jpg',
