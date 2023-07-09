@@ -5,7 +5,8 @@
 	import Modal from './Modal.svelte';
 
 	let modalOpen = false;
-	let photo: Photo | null = null;
+	let currentPhoto: Photo | null = null;
+	let currentPhotoIndex = 0;
 
 	function toggleStates() {
 		modalOpen = !modalOpen;
@@ -20,20 +21,48 @@
 
 	function handleClick(event: MouseEvent, data?: Photo) {
 		if (data) {
-			photo = data;
+			currentPhoto = data;
+			currentPhotoIndex = photos.findIndex((photo) => photo === data);
 		}
 		toggleStates();
 	}
 
 	function handleKeyDown(event: KeyboardEvent, data?: Photo) {
 		if (data) {
-			photo = data;
+			currentPhoto = data;
+			currentPhotoIndex = photos.findIndex((photo) => photo === data);
 		}
 		if ((event.key === 'Enter' || event.key === ' ') && !modalOpen) {
 			toggleStates();
 		}
 		if (event.key === 'Escape' && modalOpen) {
 			toggleStates();
+		}
+		if (event.key === 'ArrowRight' && modalOpen) {
+			nextPic();
+		}
+		if (event.key === 'ArrowLeft' && modalOpen) {
+			prevPic();
+		}
+	}
+
+	function nextPic() {
+		if (currentPhotoIndex === photos.length - 1) {
+			currentPhotoIndex = 0;
+			currentPhoto = photos[currentPhotoIndex];
+		} else {
+			currentPhotoIndex++;
+			currentPhoto = photos[currentPhotoIndex];
+		}
+	}
+
+	function prevPic() {
+		if (currentPhotoIndex === 0) {
+			currentPhotoIndex = photos.length - 1;
+			currentPhoto = photos[currentPhotoIndex];
+		} else {
+			currentPhotoIndex--;
+			currentPhoto = photos[currentPhotoIndex];
 		}
 	}
 </script>
@@ -43,8 +72,8 @@
 	<meta name="photography" content="ordinarilysam photography portfolio" />
 </svelte:head>
 <div>
-	{#if modalOpen && photo}
-		<Modal {photo} {handleClick} {handleKeyDown} />
+	{#if modalOpen && currentPhoto}
+		<Modal photo={currentPhoto} {handleClick} {handleKeyDown} {nextPic} {prevPic} />
 	{/if}
 	{#each photos as photo}
 		<Card {photo} {handleClick} {handleKeyDown} />

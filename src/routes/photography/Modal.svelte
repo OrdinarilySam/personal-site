@@ -5,15 +5,21 @@
 	export let photo: Photo;
 	export let handleClick: (event: MouseEvent) => void;
 	export let handleKeyDown: (event: KeyboardEvent) => void;
+	export let prevPic: () => void;
+	export let nextPic: () => void;
 </script>
 
 <div class="modal" on:click={handleClick} on:keydown={handleKeyDown}>
+	<button on:click|stopPropagation={prevPic}>prev</button>
 	<div class="full" on:click|stopPropagation on:keydown|stopPropagation>
-		<img src={photo.imageUrl} alt={photo.title} />
+		<div class="img-container">
+			<img src={photo.imageUrl} alt={photo.title} />
+		</div>
 		{#if Object.values(photo).every((value) => !!value)}
 			<Info {photo} />
 		{/if}
 	</div>
+	<button on:click|stopPropagation={nextPic}>next</button>
 </div>
 
 <style lang="scss">
@@ -41,9 +47,17 @@
 		justify-content: space-between;
 		padding: 1rem;
 		gap: 1rem;
-		img {
-			height: 100%;
-			object-fit: contain;
+		.img-container {
+			max-height: 100%;
+			max-width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img {
+				max-height: 100%;
+				max-width: 100%;
+				object-fit: contain;
+			}
 		}
 	}
 </style>
