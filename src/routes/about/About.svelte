@@ -1,49 +1,24 @@
 <div>
-  <!-- TODO: update text and formatting -->
-  <p>
-    I'm an aspiring web developer with a passion for creating engaging and visually appealing online experiences. 
-    From designing captivating user interfaces to crafting seamless user experiences, I strive to bring innovative ideas to life through the power of code.
-  </p>
-  <p>
-    When I'm not immersed in the world of web development, you can often find me pursuing my other interests. 
-    Photography is one of my favorite creative outlets, allowing me to capture beautiful moments and tell stories through the lens. 
-    Whether it's the breathtaking landscapes during my hikes or candid shots of everyday life, photography fuels my curiosity and sparks my imagination.
-  </p>
-  <p>
-    Speaking of hikes, nature has a special place in my heart. 
-    Exploring the great outdoors and challenging myself on scenic trails brings me a sense of peace and rejuvenation. 
-    The beauty of nature never ceases to amaze me, and I find inspiration in its vastness and intricacy.
-  </p>
-  <p>
-    Another realm that captivates me is astronomy. 
-    Gazing up at the night sky, contemplating the mysteries of the universe, and learning about celestial objects fill me with awe and wonder. 
-    It's a constant reminder of how vast and interconnected our world is.
-  </p>
-  <p>
-    When I need a break from coding and exploring the cosmos, I often indulge in the world of video games. 
-    Beyond being a form of entertainment, they offer unique storytelling experiences and can be a source of inspiration for my own projects. 
-    They also serve as a way to connect with others who share similar interests.
-  </p>
-  <p>
-    Music is the soundtrack of my life, and it accompanies me on every adventure. 
-    From soothing melodies to energizing beats, music has a way of touching my soul and evoking emotions. 
-    Whether it's playing an instrument or discovering new artists, I'm constantly seeking out new sounds to enrich my experiences.
-  </p>
-  <p>
-    Currently, I am pursuing a B.Sc. in computer science at the University of Minnesota. 
-    My studies have provided me with a strong foundation in programming languages, algorithms, and software development principles. 
-    I'm eager to continue expanding my knowledge and honing my skills to create meaningful and impactful digital experiences.
-  </p>
-  <p>
-    Thank you for visiting my website, and I hope you enjoy exploring my projects and getting to know more about my journey as a web developer. 
-    Feel free to reach out, collaborate, or simply share your own passions and ideas. 
-    Let's connect and create something remarkable together!
-  </p>
+	<p>I'm an aspiring <span>web developer</span> who likes taking <span>photos</span></p>
+	<p>I can often be found <span>hiking</span> or looking at the <span>stars</span></p>
+	<p>
+		Currently studying at <span>University of Minnesota</span> for a B.S. in
+		<span>Computer Science</span>
+	</p>
 </div>
+
 <style lang="scss">
-  div {
-    p {
-      margin-top: 0;
-    }
-  }
+	div {
+		p {
+			font-size: 2rem;
+			font-weight: 400;
+			margin-top: 0;
+			margin-bottom: 1rem;
+			word-spacing: 3px;
+			span {
+				font-weight: 800;
+				font-size: 2.5rem;
+			}
+		}
+	}
 </style>
